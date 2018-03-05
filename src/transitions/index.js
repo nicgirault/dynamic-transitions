@@ -14,7 +14,9 @@ export default ({ transition, duration, pageKey, children }) => (
       classNames={transition}
       timeout={duration}
     >
-      { children }
+      {/* you should wrap CSSTransition child in a div in case it could be null
+      see https://github.com/reactjs/react-transition-group/issues/208 */}
+      <div>{ children }</div>
     </CSSTransition>
   </TransitionGroup>
 )
