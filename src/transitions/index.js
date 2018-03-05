@@ -19,6 +19,5 @@ export default ({ transition, duration, pageKey, children }) => (
   </TransitionGroup>
 )
 
-export { default as fade } from './fade'
-export { default as slideUp } from './slide-up'
-export { default as slideLeft } from './slide-left'
+export { default as slide } from './slide'
+export { default as scale } from './scale'

@@ -1,48 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
-import { fade, slideUp, slideLeft } from './transitions'
+import { slide, scale } from './transitions'
 
 const Wrapper = styled.div`
+width: 100%;
+height: 100%;
 position: absolute;
-width: 100vw;
-height: 100vh;
 display: flex;
+flex-direction: column;
 align-items: center;
-justify-content: space-around;
+justify-content: space-between;
+background-color: ${props => props.color};
 `
 
 const Button = styled.button`
 background: white;
-border: 2px solid;
+border: 1px #333;
 height: 60px;
 font-size: 30px;
-border-radius: 30px;
+border-radius: 5px;
 cursor: pointer;
--webkit-tap-highlight-color: rgba(0,0,0,0);
 padding: 0 30px;
+margin: 10px 30px;
 &:focus {
   outline: none;
 }
 `
 
-const GreenWrapper = Wrapper.extend`background-color: #8BC34A;`
-export const Green = ({ history }) => (
-  <GreenWrapper>
-    <Button onClick={() => history.push({ pathname: '/yellow', state: fade })}>Go to yellow</Button>
-    <Button onClick={() => history.push({ pathname: '/red', state: slideUp })}>Go to red</Button>
-  </GreenWrapper>
+const Footer = styled.div`
+display: flex;
+justify-content: space-between;
+width: 300px;
+padding: 20px;
+`
+
+const Page = ({ history, to, ...props }) => (
+  <Wrapper {...props}>
+    <h1>Dynamic transitions</h1>
+    <div>
+      <Button onClick={() => history.push({ pathname: to, state: slide })}>Slide</Button>
+      <Button onClick={() => history.push({ pathname: to, state: scale })}>Scale</Button>
+    </div>
+    <Footer>
+      <a href='https://github.com/nicgirault/dynamic-transitions'>Source code</a>
+      <a href='todo'>Related article</a>
+    </Footer>
+  </Wrapper>
 )
 
-const YellowWrapper = Wrapper.extend`background-color: #ffeb3b;`
-export const Yellow = ({ history }) => (
-  <YellowWrapper>
-    <Button onClick={() => history.push({ pathname: '/green', state: slideLeft })}>Back</Button>
-  </YellowWrapper>
-)
+export const Green = (props) => <Page color='#60d7a9' to='/yellow' {...props} />
+export const Yellow = (props) => <Page color='#fdc162' to='/green' {...props} />
 
-const RedWrapper = Wrapper.extend`background-color: #f44336;`
-export const Red = ({ history }) => (
-  <RedWrapper>
-    <Button onClick={() => history.push({ pathname: '/green', state: slideLeft })}>Back</Button>
-  </RedWrapper>
-)
