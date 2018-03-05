@@ -13,10 +13,12 @@ to { opacity: 0; transform: scale(.8); }
 injectGlobal`
 .${transitionClassName}-enter-active {
   animation: ${moveFromRight} ${duration}ms ease both;
+  position: relative;
   z-index: 2;
 }
 .${transitionClassName}-exit-active {
   animation: ${scaleDown} ${duration}ms ease both;
+  position: relative;
   z-index: 1;
 }
 `
