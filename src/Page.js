@@ -43,7 +43,7 @@ const Page = ({ history, to, ...props }) => (
     </div>
     <Footer>
       <a href='https://github.com/nicgirault/dynamic-transitions'>Source code</a>
-      <a href='todo'>Related article</a>
+      <a href='https://medium.com/lalilo/dynamic-transitions-with-react-router-and-react-transition-group'>Related article</a>
     </Footer>
   </Wrapper>
 )
