@@ -1,3 +1,3 @@
 # React dynamic transitions demo
 
-[Demo](nicgirault.github.io/dynamic-transitions)
+[Demo](https://nicgirault.github.io/dynamic-transition/)
