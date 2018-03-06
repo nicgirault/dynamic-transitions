@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
-import createHistory from 'history/createHashHistory'
+import createHistory from 'history/createBrowserHistory'
 
 import Transitions from './transitions'
 import { Green, Yellow } from './Page'
@@ -18,7 +18,7 @@ export default () => (
     <Route
       render={({ location }) => (
         <Perspective>
-          <Transitions pageKey={location.pathname} {...location.state}>
+          <Transitions pageKey={location.key} {...location.state}>
             <Switch location={location}>
               <Route path='/green' component={Green} />
               <Route path='/yellow' component={Yellow} />
