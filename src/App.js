@@ -7,11 +7,9 @@ import Transitions from './transitions'
 import { Green, Yellow } from './Page'
 
 const Perspective = styled.div`
-position: relative;
 width: 100vw;
 height: 100vh;
 perspective: 1200px;
-transform-style: preserve-3d;
 `
 
 const history = createHistory()
