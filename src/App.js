@@ -20,7 +20,7 @@ export default () => (
     <Route
       render={({ location }) => (
         <Perspective>
-          <Transitions transition='' duration={0} pageKey={location.pathname} {...location.state}>
+          <Transitions pageKey={location.pathname} {...location.state}>
             <Switch location={location}>
               <Route path='/green' component={Green} />
               <Route path='/yellow' component={Yellow} />

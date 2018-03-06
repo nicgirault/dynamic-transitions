@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 // https://github.com/reactjs/react-transition-group/issues/182
 const childFactoryCreator = (props) => child => React.cloneElement(child, props)
 
-export default ({ transition, duration, pageKey, children }) => (
+export default ({ transition = '', duration = 0, pageKey, children }) => (
   <TransitionGroup
     childFactory={childFactoryCreator({ classNames: transition, timeout: duration })}
   >
