@@ -9,7 +9,7 @@ export default ({ transition = '', duration = 0, pageKey, children }) => (
   <TransitionGroup
     childFactory={childFactoryCreator({ classNames: transition, timeout: duration })}
   >
-    <CSSTransition key={pageKey}>
+    <CSSTransition timeout={200} key={pageKey}>
       {/* you should wrap CSSTransition child in a div in case it could be null
       see https://github.com/reactjs/react-transition-group/issues/208 */}
       <div>{ children }</div>
